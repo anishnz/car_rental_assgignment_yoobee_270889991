@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ project_name }} - Home{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ project_name }}</h1>
+  <p class="muted">The same web page equivalent of the CLI's welcome screen - pick an option below.</p>
+  <div class="button-list">
+    <a class="btn" href="{{ url_for('login') }}">1. Login</a>
+    <a class="btn" href="{{ url_for('register_choice') }}">2. Register</a>
+    <a class="btn secondary" href="{{ url_for('vehicles_public') }}">3. View Available Vehicles</a>
+    <a class="btn secondary" href="{{ url_for('vehicles_by_type') }}">4. View Vehicles by Car Type</a>
+    <a class="btn secondary" href="{{ url_for('rental_info') }}">5. View Rental Information</a>
+    <a class="btn secondary" href="{{ url_for('about') }}">6. About This Project</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Join a Vehicle's Waitlist{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Join a Vehicle's Waitlist</h1>
+  <form method="post">
+    <label>Vehicle ID</label>
+    <input type="number" name="vehicle_id" value="{{ form.vehicle_id or '' }}" required>
+    <label>Your desired pickup date</label>
+    <input type="date" name="pickup_date" value="{{ form.pickup_date or '' }}" required>
+    <label>Your desired return date</label>
+    <input type="date" name="return_date" value="{{ form.return_date or '' }}" required>
+    <p style="margin-top:16px;"><button class="btn" type="submit">Join Waitlist</button></p>
+  </form>
+  <a class="btn secondary" href="{{ url_for('customer_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

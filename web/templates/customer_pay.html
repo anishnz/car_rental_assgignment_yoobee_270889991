@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Make a Payment{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Make a Payment - Booking #{{ booking.booking_id }}</h1>
+  <p>Booking total : {{ booking.total_amount | currency }}</p>
+  <p>Already paid&nbsp;&nbsp;: {{ already_paid | currency }}</p>
+  <p>Outstanding&nbsp;&nbsp;&nbsp;: {{ outstanding | currency }}</p>
+
+  <form method="post">
+    <label>Amount to pay now</label>
+    <input type="number" step="0.01" name="amount" required>
+    <label>Payment Method</label>
+    <select name="method">
+      {% for m in valid_methods %}<option value="{{ m }}">{{ m }}</option>{% endfor %}
+    </select>
+    <p style="margin-top:16px;"><button class="btn" type="submit">Record Payment</button></p>
+  </form>
+  <a class="btn secondary" href="{{ url_for('customer_bookings') }}">Back to My Bookings</a>
+</div>
+{% endblock %}

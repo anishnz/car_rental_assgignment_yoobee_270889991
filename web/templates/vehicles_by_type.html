@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Vehicles by Car Type{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Vehicles by Car Type</h1>
+  <form method="get">
+    <label>Car type</label>
+    <select name="type" onchange="this.form.submit()">
+      <option value="">-- choose a type --</option>
+      {% for t in valid_types %}
+      <option value="{{ t }}" {% if t == selected_type %}selected{% endif %}>{{ t }}</option>
+      {% endfor %}
+    </select>
+  </form>
+
+  {% if selected_type %}
+  <table>
+    <tr><th>ID</th><th>Vehicle</th><th>Seats</th><th>Daily Rate</th></tr>
+    {% for v in vehicles %}
+    <tr><td>{{ v.vehicle_id }}</td><td>{{ v.display_name() }}</td><td>{{ v.seats }}</td><td>{{ v.daily_rate | currency }}</td></tr>
+    {% else %}
+    <tr><td colspan="4" class="muted">(no available vehicles of this type right now)</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

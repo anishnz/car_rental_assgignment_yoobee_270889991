@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Book a Vehicle{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Book {{ vehicle.display_name() }}</h1>
+  <p class="muted">Daily rate: {{ vehicle.daily_rate | currency }} | Seats: {{ vehicle.seats }} | Status: <span class="badge {{ vehicle.status }}">{{ vehicle.status }}</span></p>
+
+  <form method="post">
+    <label>Pickup date</label>
+    <input type="date" name="pickup_date" value="{{ form.pickup_date or '' }}" required>
+    <label>Return date</label>
+    <input type="date" name="return_date" value="{{ form.return_date or '' }}" required>
+    <label>Estimated distance for the trip (km)</label>
+    <input type="number" step="0.01" name="distance_km" value="{{ form.distance_km or '' }}" required>
+    <label>
+      <input type="checkbox" name="driver_required" value="Y" style="width:auto;display:inline;"
+             {% if form.driver_required %}checked{% endif %}> Do you need a driver?
+    </label>
+    {% if drivers %}
+    <label>Choose a driver (only used if the box above is checked)</label>
+    <select name="driver_id">
+      <option value="">-- choose a driver --</option>
+      {% for d in drivers %}
+      <option value="{{ d.owner_driver_id }}">{{ d.full_name }} ({{ d.daily_driver_rate | currency }}/day)</option>
+      {% endfor %}
+    </select>
+    {% else %}
+    <p class="muted">No drivers are currently available.</p>
+    {% endif %}
+    <p style="margin-top:16px;"><button class="btn" type="submit">Book This Vehicle</button></p>
+  </form>
+
+  {% if show_waitlist_option %}
+  <form method="post" action="{{ url_for('customer_waitlist_join') }}" style="margin-top:10px;">
+    <input type="hidden" name="vehicle_id" value="{{ vehicle.vehicle_id }}">
+    <input type="hidden" name="pickup_date" value="{{ form.pickup_date }}">
+    <input type="hidden" name="return_date" value="{{ form.return_date }}">
+    <button class="btn secondary" type="submit">Join the Waitlist for These Dates Instead</button>
+  </form>
+  {% endif %}
+
+  <a class="btn secondary" href="{{ url_for('customer_vehicles') }}">Back to Vehicles</a>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+# Byte-compiled Python files - regenerated automatically every time the
+# program runs, never something that should be tracked in version control.
+__pycache__/
+*.pyc
+
+# The SQLite database file itself - this is DATA (created + seeded
+# automatically the first time main.py runs, see database/db_connection.py
+# and database/seed_data.py), not source code, so it does not belong in git.
+# Every fresh clone of this repository gets its own fresh copy, seeded with
+# the same demo dataset described in docs/02_seed_data_plan.md.
+ncrs_database.sqlite3
+ncrs_database.sqlite3-journal
+
+# Common editor/OS clutter
+.vscode/
+.DS_Store
+
+# Python virtual environment, if one is created locally
+.venv/
+venv/
+
+# pytest cache
+.pytest_cache/

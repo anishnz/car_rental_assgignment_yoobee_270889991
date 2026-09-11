@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Vehicle Waitlist{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Waitlist for {{ vehicle.display_name() }} ({{ vehicle.registration_no }})</h1>
+  {% if entries %}
+  <table>
+    <tr><th>ID</th><th>Customer</th><th>Requested Pickup</th><th>Requested Return</th><th>Notified</th></tr>
+    {% for e in entries %}
+    <tr>
+      <td>{{ e.waitlist_id }}</td><td>{{ e.customer_name }}</td>
+      <td>{{ e.requested_pickup_date }}</td><td>{{ e.requested_return_date }}</td>
+      <td>{{ "Yes" if e.notified else "No" }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">(no one is currently waitlisted for this vehicle)</p>
+  {% endif %}
+  <a class="btn secondary" href="{{ url_for('owner_vehicles') }}">Back to My Vehicles</a>
+</div>
+{% endblock %}

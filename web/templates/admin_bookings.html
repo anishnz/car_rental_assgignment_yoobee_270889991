@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Manage Bookings{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Manage Bookings</h1>
+  <form method="get">
+    <label>Filter by status</label>
+    <select name="status" onchange="this.form.submit()">
+      <option value="">-- All bookings --</option>
+      {% for s in valid_statuses %}
+      <option value="{{ s }}" {% if s == selected_status %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <table>
+    <tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>Pickup</th><th>Return</th><th>Total</th><th>Status</th><th>Actions</th></tr>
+    {% for b in bookings %}
+    <tr>
+      <td>{{ b.booking_id }}</td><td>{{ b.customer_id }}</td><td>{{ b.vehicle_id }}</td>
+      <td>{{ b.pickup_date }}</td><td>{{ b.return_date }}</td><td>{{ b.total_amount | currency }}</td>
+      <td><span class="badge {{ b.status }}">{{ b.status }}</span></td>
+      <td>
+        {% if b.status == 'PENDING' %}
+        <form class="inline" method="post" action="{{ url_for('admin_booking_action', booking_id=b.booking_id, action='confirm') }}"><button class="btn small" type="submit">Confirm</button></form>
+        <form class="inline" method="post" action="{{ url_for('admin_booking_action', booking_id=b.booking_id, action='reject') }}"><button class="btn small danger" type="submit">Reject</button></form>
+        {% elif b.status in ('CONFIRMED', 'ACTIVE') %}
+        <form class="inline" method="post" action="{{ url_for('admin_booking_action', booking_id=b.booking_id, action='cancel') }}"><button class="btn small danger" type="submit">Cancel</button></form>
+        <form class="inline" method="post" action="{{ url_for('admin_booking_action', booking_id=b.booking_id, action='complete') }}"><button class="btn small" type="submit">Complete</button></form>
+        {% else %}
+        <span class="muted">-</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="8" class="muted">(no bookings to show)</td></tr>
+    {% endfor %}
+  </table>
+  <a class="btn secondary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

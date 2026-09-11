@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Customer Registration{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Customer Registration</h1>
+  <p class="muted">Every field below is required.</p>
+  <form method="post">
+    <label>Full Name (required)</label>
+    <input type="text" name="full_name" placeholder="e.g. Om Shrestha" required>
+    <label>Username (required)</label>
+    <input type="text" name="username" placeholder="e.g. om" required>
+    <label>Email (required)</label>
+    <input type="email" name="email" placeholder="e.g. om@gmail.com" required>
+    <label>Phone (required)</label>
+    <input type="text" name="phone" placeholder="e.g. 9800000000" required>
+    <label>Address (required)</label>
+    <input type="text" name="address" placeholder="e.g. Auckland" required>
+    <label>Driving Licence Number (required)</label>
+    <input type="text" name="licence_no" placeholder="e.g. 345678-AKL" required>
+    <label>Password (required)</label>
+    <input type="password" name="password" required>
+    <label>Customer Keyword (required)</label>
+    <input type="text" name="keyword" required>
+    <small class="help">
+      The Customer keyword to type above is:
+      {% for item in registration_keywords %}{% if item.role_label == "Customer" %}<code>{{ item.keyword }}</code>{% endif %}{% endfor %}
+      (this confirms you're on the right form - it isn't a secret password).
+    </small>
+    <p style="margin-top:16px;"><button class="btn" type="submit">Register</button></p>
+  </form>
+</div>
+{% endblock %}

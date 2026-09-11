@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}System Statistics{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>System Statistics</h1>
+  <div class="stat-grid">
+    <div class="stat-tile"><div class="value">{{ stats.total_customers }}</div><div class="label">Total Customers</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.total_vehicles }}</div><div class="label">Total Vehicles</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.available_vehicles }}</div><div class="label">Available Vehicles</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.pending_bookings }}</div><div class="label">Pending Bookings</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.active_bookings }}</div><div class="label">Active Bookings</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.completed_bookings }}</div><div class="label">Completed Bookings</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.total_revenue_paid | currency }}</div><div class="label">Total Revenue (Paid)</div></div>
+    <div class="stat-tile"><div class="value">{{ stats.waitlist_entries_waiting }}</div><div class="label">Waitlist Entries Waiting</div></div>
+  </div>
+  <p style="margin-top:20px;"><a class="btn secondary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a></p>
+</div>
+{% endblock %}

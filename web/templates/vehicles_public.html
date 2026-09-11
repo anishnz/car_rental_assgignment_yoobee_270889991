@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Available Vehicles{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Available Vehicles</h1>
+  <table>
+    <tr><th>ID</th><th>Vehicle</th><th>Type</th><th>Seats</th><th>Daily Rate</th></tr>
+    {% for v in vehicles %}
+    <tr>
+      <td>{{ v.vehicle_id }}</td><td>{{ v.display_name() }}</td><td>{{ v.vehicle_type }}</td>
+      <td>{{ v.seats }}</td><td>{{ v.daily_rate | currency }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5" class="muted">(no vehicles available right now)</td></tr>
+    {% endfor %}
+  </table>
+  <p class="muted">Login or register as a Customer to book one of these vehicles.</p>
+  <a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

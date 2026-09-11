@@ -1,0 +1,13 @@
+# Nepal Car Rental System (NCRS) - Python dependencies
+#
+# This project is deliberately kept lightweight: everything runs offline, with no
+# paid services. Every package below is free and open-source.
+
+tabulate==0.9.0
+pytest==8.3.3
+
+# Flask powers the OPTIONAL web interface (web/app.py) - a browser-based, point-
+# and-click alternative to the CLI, added on top of the same services/ layer.
+# Only needed if you want to run "python web/app.py"; the original CLI
+# (main.py) never imports Flask and works exactly as before without it.
+Flask==3.1.3

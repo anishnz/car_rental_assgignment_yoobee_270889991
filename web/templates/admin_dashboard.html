@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Super Administrator Dashboard{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Super Administrator Dashboard</h1>
+  <div class="button-list">
+    <a class="btn" href="{{ url_for('admin_users') }}">1. Manage Users (view + reset password)</a>
+    <a class="btn" href="{{ url_for('admin_registrations') }}">2. Pending Registrations (approve / reject)</a>
+    <a class="btn" href="{{ url_for('admin_vehicles') }}">3. View All Vehicles</a>
+    <a class="btn" href="{{ url_for('admin_bookings') }}">4. Manage Bookings</a>
+    <a class="btn" href="{{ url_for('admin_payments') }}">5. Payments (record + view all)</a>
+    <a class="btn" href="{{ url_for('admin_stats') }}">6. System Statistics</a>
+    <a class="btn" href="{{ url_for('admin_rate') }}">7. Set Rate per KM</a>
+    <a class="btn secondary" href="{{ url_for('change_password', role='admin') }}">8. Change My Password</a>
+  </div>
+
+  <h2 style="margin-top:24px;">Reset Test Data</h2>
+  <p class="muted">Wipes ALL current data and restores the original demo dataset. Cannot be undone.</p>
+  <form method="post" action="{{ url_for('admin_reset_test_data') }}"
+        onsubmit="return confirm('This will DELETE all current data and restore the original demo dataset. Are you absolutely sure?');">
+    <button class="btn danger" type="submit">00. Reset Test Data</button>
+  </form>
+</div>
+{% endblock %}

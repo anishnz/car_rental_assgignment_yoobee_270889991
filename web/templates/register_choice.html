@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>User Registration</h1>
+  <p class="muted">Choose registration type:</p>
+  <div class="button-list">
+    <a class="btn" href="{{ url_for('register_admin') }}">1. Super Administrator</a>
+    <a class="btn" href="{{ url_for('register_owner') }}">2. Vehicle Owner / Driver</a>
+    <a class="btn" href="{{ url_for('register_customer') }}">3. Customer</a>
+    <a class="btn secondary" href="{{ url_for('home') }}">0. Back</a>
+  </div>
+</div>
+
+{% if registration_keywords %}
+<div class="card demo-box">
+  <h2>Registration Keywords</h2>
+  <p class="muted">
+    Each registration form ends with a keyword field that confirms you're
+    filling in the right form for that role (it isn't a secret password) -
+    type the matching one shown below, exactly as written.
+  </p>
+  <table>
+    <thead><tr><th>Role</th><th>Keyword to type</th></tr></thead>
+    <tbody>
+      {% for item in registration_keywords %}
+      <tr><td>{{ item.role_label }}</td><td><code>{{ item.keyword }}</code></td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

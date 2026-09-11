@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" version="24.7.0">
+  <diagram name="Class Diagram - NCRS" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="User" value="User
++user_id: int
++username: str
+-password_hash: str
++role: str
++status: str
+--
++login(password): bool
++logout()
++reset_password(new_password)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="620" y="40" width="280" height="202" as="geometry"/>
+        </mxCell>
+        <mxCell id="Admin" value="Admin
++approve_registration(user_id)
++approve_booking(booking_id)
++reset_user_password(user_id, new_pw)
++set_rate_per_km(new_rate)
++view_reports()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="160" y="340" width="260" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="Owner" value="VehicleOwnerDriver
++full_name, phone, licence_no
++licence_expiry
++daily_driver_rate
+--
++add_vehicle(vehicle)
++update_vehicle(id)
++delete_vehicle(id)
++view_own_bookings()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="340" width="280" height="184" as="geometry"/>
+        </mxCell>
+        <mxCell id="Customer" value="Customer
++full_name, phone, address
++licence_no
+--
++book_vehicle(vehicle, dates, km)
++cancel_booking(id)
++join_waitlist(vehicle)
++view_my_bookings()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="820" y="340" width="280" height="166" as="geometry"/>
+        </mxCell>
+        <mxCell id="Vehicle" value="Vehicle
++vehicle_id, registration_no
++brand, model, year, seats
++vehicle_type, daily_rate
++status
+--
++check_availability(pickup, ret)
++update_status(new_status)
++attach(observer)
++notify_waitlist()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="660" width="280" height="202" as="geometry"/>
+        </mxCell>
+        <mxCell id="Booking" value="Booking
++booking_id, pickup_date, return_date
++distance_km, driver_required
++rate_per_km_applied
++total_amount, status
+--
++calculate_cost(): float
++confirm()
++cancel()
++complete()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="820" y="660" width="280" height="202" as="geometry"/>
+        </mxCell>
+        <mxCell id="Payment" value="Payment
++payment_id, amount
++payment_date, method, status" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="820" y="980" width="260" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="Observer" value="&lt;&lt;interface&gt;&gt;
+Observer
++on_vehicle_available(vehicle)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="340" width="240" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="Waitlist" value="WaitlistEntry
++waitlist_id
++requested_pickup, requested_return
++notified: bool
+--
++on_vehicle_available(vehicle)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="660" width="260" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="DBConn" value="&lt;&lt;Singleton&gt;&gt;
+DatabaseConnection
+-connection
+--
++get_instance(): DatabaseConnection
++execute(query, params)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="980" width="260" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="RentalSystem" value="&lt;&lt;Singleton&gt;&gt;
+RentalSystem
++get_instance(): RentalSystem
++run()" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1470" y="980" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge0" style="endArrow=block;endFill=0;endSize=16;html=1;" edge="1" parent="1" source="Admin" target="User">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge1" style="endArrow=block;endFill=0;endSize=16;html=1;" edge="1" parent="1" source="Owner" target="User">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" style="endArrow=block;endFill=0;endSize=16;html=1;" edge="1" parent="1" source="Customer" target="User">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" style="endArrow=block;endFill=0;endSize=16;dashed=1;html=1;" edge="1" parent="1" source="Waitlist" target="Observer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge4" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Owner" target="Vehicle" value="owns 1..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge5" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Customer" target="Booking" value="makes 0..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge6" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Vehicle" target="Booking" value="booked in 0..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge7" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Owner" target="Booking" value="drives 0..1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge8" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Booking" target="Payment" value="has 1..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge9" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Vehicle" target="Waitlist" value="notifies 0..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge10" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="Customer" target="Waitlist" value="joins 0..*">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge11" style="endArrow=open;endFill=1;endSize=10;html=1;fontSize=10;" edge="1" parent="1" source="RentalSystem" target="DBConn" value="uses">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

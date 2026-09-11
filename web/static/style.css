@@ -1,0 +1,143 @@
+/* web/static/style.css
+   ======================
+   WHAT THIS FILE IS FOR:
+   One shared, plain CSS file for every page of the web interface (same idea as
+   cli/common.py on the CLI side: one shared place, so a colour or spacing change
+   here applies everywhere, instead of copy-pasting styles into every page).
+   Deliberately simple - no framework, no build step, just plain CSS - since the
+   assignment asked for a simple HTML/CSS site that runs fully offline.
+*/
+
+:root {
+  --dark: #1F3B57;      /* Himalayan-blue, matches the CLI/report branding */
+  --accent: #C0392B;    /* Nepal-flag red, used sparingly for emphasis/danger */
+  --accent-dark: #96271b;
+  --green: #1e7a34;
+  --grey: #666666;
+  --border: #dcdfe3;
+  --bg: #f6f7f9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+header.site-header {
+  background: var(--dark);
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header.site-header a { color: #fff; text-decoration: none; }
+header.site-header .brand { font-weight: 700; font-size: 1.1rem; }
+header.site-header nav a {
+  margin-left: 16px;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+header.site-header nav a:hover { opacity: 1; text-decoration: underline; }
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+h1 { color: var(--dark); font-size: 1.5rem; margin-top: 0; }
+h2 { color: var(--dark); font-size: 1.15rem; border-bottom: 2px solid var(--border); padding-bottom: 6px; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* "a list of option buttons, clicking one goes to the next page" - the
+   dashboards are literally built out of these. */
+.button-list { display: flex; flex-direction: column; gap: 10px; }
+.button-list .btn { text-align: left; }
+
+.btn {
+  display: inline-block;
+  background: var(--dark);
+  color: #fff !important;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.btn:hover { opacity: 0.9; }
+.btn.secondary { background: #555; }
+.btn.danger { background: var(--accent); }
+.btn.danger:hover { background: var(--accent-dark); }
+.btn.small { padding: 5px 10px; font-size: 0.82rem; }
+.btn[disabled] { background: #aaa; cursor: not-allowed; }
+
+form.inline { display: inline; }
+
+.flash { padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 0.95rem; }
+.flash.success { background: #e7f6ea; color: var(--green); border: 1px solid #bfe6c8; }
+.flash.error { background: #fbe9e7; color: var(--accent); border: 1px solid #f3c6bf; }
+
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.92rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+th { background: var(--dark); color: #fff; }
+tr:nth-child(even) td { background: #fafbfc; }
+
+label { display: block; margin: 12px 0 4px; font-weight: 600; font-size: 0.9rem; }
+input[type=text], input[type=password], input[type=number], input[type=date],
+input[type=email], select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+small.help { color: var(--grey); display: block; margin-top: 3px; }
+fieldset { border: 1px solid var(--border); border-radius: 6px; margin: 16px 0; }
+legend { padding: 0 6px; color: var(--dark); font-weight: 700; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.78rem; color: #fff; }
+.badge.AVAILABLE, .badge.ACTIVE, .badge.APPROVED, .badge.CONFIRMED, .badge.PAID, .badge.COMPLETED { background: var(--green); }
+.badge.PENDING, .badge.PARTIAL, .badge.BOOKED { background: #b8860b; }
+.badge.MAINTENANCE, .badge.CANCELLED, .badge.REJECTED { background: var(--accent); }
+.badge.RENTED { background: var(--dark); }
+
+.muted { color: var(--grey); font-size: 0.88rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.stat-tile { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.stat-tile .value { font-size: 1.6rem; font-weight: 700; color: var(--dark); }
+.stat-tile .label { color: var(--grey); font-size: 0.85rem; }
+
+footer { text-align: center; color: var(--grey); font-size: 0.82rem; padding: 20px; }
+
+/* Demo-accounts box on the login page - see web/templates/login.html */
+.demo-box { border-left: 4px solid var(--dark); }
+.demo-box table td, .demo-box table th { vertical-align: middle; }
+code {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  header.site-header { flex-direction: column; align-items: flex-start; }
+  header.site-header nav a { margin-left: 0; margin-right: 14px; }
+}

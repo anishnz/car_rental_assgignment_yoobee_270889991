@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>About {{ project_name }}</h1>
+  <table>
+    <tr><th colspan="2">Academic details</th></tr>
+    <tr><td>Programme</td><td>{{ cfg.PROGRAMME }}</td></tr>
+    <tr><td>Course</td><td>{{ cfg.COURSE_NAME }}</td></tr>
+    <tr><td>Course Details</td><td>{{ cfg.COURSE_DETAILS }}</td></tr>
+    <tr><td>Assessment</td><td>{{ cfg.ASSESSMENT_TITLE }}</td></tr>
+    <tr><td>Lecturer</td><td>{{ cfg.LECTURER_NAME }}</td></tr>
+    <tr><td>Student Name</td><td>{{ cfg.STUDENT_NAME }}</td></tr>
+    <tr><td>Student ID</td><td>{{ cfg.STUDENT_ID }}</td></tr>
+    <tr><td>Institution</td><td>{{ cfg.INSTITUTION }}</td></tr>
+  </table>
+  <table>
+    <tr><th colspan="2">Project identity</th></tr>
+    <tr><td>Project</td><td>{{ cfg.PROJECT_NAME }}</td></tr>
+    <tr><td>Version</td><td>{{ cfg.PROJECT_VERSION }}</td></tr>
+  </table>
+  <h2>Authorship metadata attached by the @author_info decorator</h2>
+  <p class="muted">(see utils/author_decorator.py and services/rental_system.py)</p>
+  <table>
+    <tr><td>RentalSystem.__author__</td><td>{{ author_meta.author }}</td></tr>
+    <tr><td>RentalSystem.__student_id__</td><td>{{ author_meta.student_id }}</td></tr>
+    <tr><td>RentalSystem.__institution__</td><td>{{ author_meta.institution }}</td></tr>
+  </table>
+  <a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

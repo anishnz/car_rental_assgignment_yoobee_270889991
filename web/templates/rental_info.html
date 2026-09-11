@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Rental Information{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Rental Information</h1>
+  <h2>How renting works</h2>
+  <ol>
+    <li>Register as a Customer (or login if you already have an account).</li>
+    <li>Browse the available vehicles and choose one that suits you.</li>
+    <li>Provide your pickup date, return date, and estimated distance (km).</li>
+    <li>Choose whether you need a driver as well.</li>
+    <li>Your booking is created as PENDING until an administrator confirms it.</li>
+  </ol>
+  <h2>Pricing formula</h2>
+  <p>
+    Total Cost = (Days &times; Daily Vehicle Rate)<br>
+    &nbsp;&nbsp;&nbsp;+ (Distance in km &times; Rate per km)<br>
+    &nbsp;&nbsp;&nbsp;+ (Days &times; Driver Daily Rate, only if a driver is requested)
+  </p>
+  <p>All prices are shown in {{ currency_symbol }} (New Zealand Dollars).</p>
+  <h2>Navigation, from any page</h2>
+  <p>
+    This web interface uses ordinary page navigation (buttons and links) instead of the CLI's
+    keyboard shortcuts. To log out, use the Logout link in the top-right at any time.
+  </p>
+  <a class="btn secondary" href="{{ url_for('home') }}">Back</a>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Payments{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Record a Payment</h2>
+  <form method="post">
+    <label>Booking ID</label>
+    <input type="number" name="booking_id" required>
+    <label>Amount</label>
+    <input type="number" step="0.01" name="amount" required>
+    <label>Payment Method</label>
+    <select name="method">
+      {% for m in valid_methods %}<option value="{{ m }}">{{ m }}</option>{% endfor %}
+    </select>
+    <label>Payment Status</label>
+    <select name="status">
+      {% for s in valid_statuses %}<option value="{{ s }}">{{ s }}</option>{% endfor %}
+    </select>
+    <p style="margin-top:16px;"><button class="btn" type="submit">Record Payment</button></p>
+  </form>
+</div>
+
+<div class="card">
+  <h2>All Payments</h2>
+  <table>
+    <tr><th>ID</th><th>Booking ID</th><th>Amount</th><th>Date</th><th>Method</th><th>Status</th></tr>
+    {% for p in payments %}
+    <tr>
+      <td>{{ p.payment_id }}</td><td>{{ p.booking_id }}</td><td>{{ p.amount | currency }}</td>
+      <td>{{ p.payment_date }}</td><td>{{ p.method }}</td>
+      <td><span class="badge {{ p.status }}">{{ p.status }}</span></td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" class="muted">(no payments recorded yet)</td></tr>
+    {% endfor %}
+  </table>
+  <a class="btn secondary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

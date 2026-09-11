@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Browse Vehicles{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Browse / Search Vehicles</h1>
+  <form method="get">
+    <label>Search by brand, model, or registration number</label>
+    <input type="text" name="q" value="{{ query or '' }}">
+    <p style="margin-top:10px;"><button class="btn small" type="submit">Search</button>
+    <a class="btn small secondary" href="{{ url_for('customer_vehicles') }}">Clear</a></p>
+  </form>
+  <table>
+    <tr><th>ID</th><th>Vehicle</th><th>Type</th><th>Seats</th><th>Daily Rate</th><th>Status</th><th></th></tr>
+    {% for v in vehicles %}
+    <tr>
+      <td>{{ v.vehicle_id }}</td><td>{{ v.display_name() }}</td><td>{{ v.vehicle_type }}</td>
+      <td>{{ v.seats }}</td><td>{{ v.daily_rate | currency }}</td>
+      <td><span class="badge {{ v.status }}">{{ v.status }}</span></td>
+      <td><a class="btn small" href="{{ url_for('customer_book', vehicle_id=v.vehicle_id) }}">Book</a></td>
+    </tr>
+    {% else %}
+    <tr><td colspan="7" class="muted">(no vehicles found)</td></tr>
+    {% endfor %}
+  </table>
+  <a class="btn secondary" href="{{ url_for('customer_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

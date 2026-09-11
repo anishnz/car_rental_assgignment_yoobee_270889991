@@ -1,0 +1,205 @@
+<mxfile host="app.diagrams.net" version="24.7.0">
+  <diagram name="Sequence Diagram - Booking Flow" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="Cust1" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60.0" y="40" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="CLI1" value="CLI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="220.0" y="40" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="Svc1" value="BookingService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="440.0" y="40" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="Veh1" value="Vehicle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="660.0" y="40" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB1" value="SQLite Database" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="880.0" y="40" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="Cust1_life" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="79" y="100" width="2" height="1350" as="geometry"/>
+        </mxCell>
+        <mxCell id="CLI1_life" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="299" y="80" width="2" height="1370" as="geometry"/>
+        </mxCell>
+        <mxCell id="Svc1_life" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="519" y="80" width="2" height="1370" as="geometry"/>
+        </mxCell>
+        <mxCell id="Veh1_life" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="739" y="80" width="2" height="1370" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB1_life" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="959" y="80" width="2" height="1370" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_0" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="109" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_0" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="109" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_1" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_1" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_2" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="249" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_2" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="249" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_3" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="319" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_3" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="319" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_4" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="389" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_4" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="389" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_5" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="459" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_5" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="459" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_6" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="529" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_6" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="529" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_7" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="599" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_7" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="599" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_8" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="669" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_8" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="669" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_9" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="739" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_9" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="739" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_11" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="879" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_11" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="879" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_12" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="949" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_12" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="949" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_13" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="1019" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_13" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="1019" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_14" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="1089" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_14" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="1089" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_15" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="1159" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_15" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="959" y="1159" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_16" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="1229" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_16" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="739" y="1229" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_17" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="519" y="1299" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_17" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="1299" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_src_18" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="299" y="1369" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="wp_tgt_18" value="" style="shape=none;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="79" y="1369" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge0" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_0" target="wp_tgt_0" value="Select &quot;Book a Vehicle&quot;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge1" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_1" target="wp_tgt_1" value="Ask vehicle ID, dates, distance, driver required">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_2" target="wp_tgt_2" value="Provide booking details">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_3" target="wp_tgt_3" value="create_booking(details)">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge4" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_4" target="wp_tgt_4" value="fetch vehicle record">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge5" style="html=1;fontSize=11;dashed=1;endArrow=open;" edge="1" parent="1" source="wp_src_5" target="wp_tgt_5" value="vehicle">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge6" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_6" target="wp_tgt_6" value="check overlapping bookings">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge7" style="html=1;fontSize=11;dashed=1;endArrow=open;" edge="1" parent="1" source="wp_src_7" target="wp_tgt_7" value="no conflict">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge8" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_8" target="wp_tgt_8" value="fetch current rate_per_km">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge9" style="html=1;fontSize=11;dashed=1;endArrow=open;" edge="1" parent="1" source="wp_src_9" target="wp_tgt_9" value="rate_per_km">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge10" style="html=1;fontSize=11;endArrow=block;edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0;exitDx=0;exitDy=8;entryX=1;entryY=0;entryDx=0;entryDy=28;" edge="1" parent="1" source="Svc1_life" target="Svc1_life" value="calculate_cost(days, distance, driver)">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge11" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_11" target="wp_tgt_11" value="booking summary + total (NZD$)">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge12" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_12" target="wp_tgt_12" value="Show summary, ask to confirm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge13" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_13" target="wp_tgt_13" value="Confirm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge14" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_14" target="wp_tgt_14" value="confirm_booking()">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge15" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_15" target="wp_tgt_15" value="insert booking (PENDING)">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge16" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_16" target="wp_tgt_16" value="update_status(BOOKED)">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge17" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_17" target="wp_tgt_17" value="Booking pending admin approval">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge18" style="html=1;fontSize=11;endArrow=block;" edge="1" parent="1" source="wp_src_18" target="wp_tgt_18" value="Show confirmation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

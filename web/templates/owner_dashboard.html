@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Owner / Driver Dashboard{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Owner / Driver Dashboard - {{ current_user.full_name }}</h1>
+  <div class="button-list">
+    <a class="btn" href="{{ url_for('owner_vehicles') }}">1. View My Vehicles</a>
+    <a class="btn" href="{{ url_for('owner_vehicle_add') }}">2. Add a New Vehicle</a>
+    <a class="btn secondary" href="{{ url_for('change_password', role='owner') }}">3. Change My Password</a>
+  </div>
+  <p class="muted" style="margin-top:16px;">Update a vehicle's rate/status, delete a vehicle, or view its
+     waitlist from the "My Vehicles" list below.</p>
+</div>
+{% endblock %}

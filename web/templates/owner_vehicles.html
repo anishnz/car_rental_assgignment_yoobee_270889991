@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}My Vehicles{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>My Vehicles</h1>
+  {% if vehicles %}
+  <table>
+    <tr><th>ID</th><th>Vehicle</th><th>Reg. No.</th><th>Type</th><th>Seats</th><th>Daily Rate</th><th>Status</th><th>Actions</th></tr>
+    {% for v in vehicles %}
+    <tr>
+      <td>{{ v.vehicle_id }}</td><td>{{ v.display_name() }}</td><td>{{ v.registration_no }}</td>
+      <td>{{ v.vehicle_type }}</td><td>{{ v.seats }}</td><td>{{ v.daily_rate | currency }}</td>
+      <td><span class="badge {{ v.status }}">{{ v.status }}</span></td>
+      <td>
+        <a class="btn small" href="{{ url_for('owner_vehicle_edit', vehicle_id=v.vehicle_id) }}">Edit</a>
+        <a class="btn small secondary" href="{{ url_for('owner_waitlist', vehicle_id=v.vehicle_id) }}">Waitlist</a>
+        <form class="inline" method="post" action="{{ url_for('owner_vehicle_delete', vehicle_id=v.vehicle_id) }}"
+              onsubmit="return confirm('Delete {{ v.display_name() }} ({{ v.registration_no }})?');">
+          <button class="btn small danger" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">(you have not listed any vehicles yet)</p>
+  {% endif %}
+  <a class="btn secondary" href="{{ url_for('owner_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>User Login</h1>
+  <form method="post">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required autofocus>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+    <p style="margin-top:16px;">
+      <button class="btn" type="submit">Login</button>
+      <a class="btn secondary" href="{{ url_for('forgot_password') }}">Forgot password?</a>
+    </p>
+  </form>
+</div>
+
+{% if demo_accounts %}
+<div class="card demo-box">
+  <h2>Demo Accounts (for quick testing)</h2>
+  <p class="muted">
+    These are the same 3 demo accounts described in the README - already in the
+    database from the first run. Click a button to log straight in as that
+    role, no typing needed, or use the username/password shown if you would
+    rather log in with the form above.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Username</th><th>Password</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for account in demo_accounts %}
+      <tr>
+        <td>{{ account.role_label }}</td>
+        <td><code>{{ account.username }}</code></td>
+        <td><code>{{ account.password }}</code></td>
+        <td>
+          <form class="inline" method="post" action="{{ url_for('login') }}">
+            <input type="hidden" name="username" value="{{ account.username }}">
+            <input type="hidden" name="password" value="{{ account.password }}">
+            <button class="btn small" type="submit">Log in as {{ account.role_label }}</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="muted" style="margin-bottom:0;">
+    This box only shows because these are seeded demo accounts meant for
+    testing/marking - a real deployment would never print passwords on a
+    login page. See README section 3 for the full account list, including
+    the extra owner/driver accounts not shown here.
+  </p>
+</div>
+{% endif %}
+{% endblock %}

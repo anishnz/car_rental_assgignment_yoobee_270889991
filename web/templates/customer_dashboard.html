@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Customer Dashboard{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Customer Dashboard - {{ current_user.full_name }}</h1>
+  <div class="button-list">
+    <a class="btn" href="{{ url_for('customer_vehicles') }}">1. Browse / Search Vehicles</a>
+    <a class="btn" href="{{ url_for('customer_bookings') }}">2. My Bookings</a>
+    <a class="btn" href="{{ url_for('customer_waitlist_join') }}">3. Join a Vehicle's Waitlist</a>
+    <a class="btn secondary" href="{{ url_for('change_password', role='customer') }}">4. Change My Password</a>
+  </div>
+  <p class="muted" style="margin-top:16px;">Book a vehicle, cancel a booking, or make a payment from the
+     relevant lists above.</p>
+</div>
+{% endblock %}

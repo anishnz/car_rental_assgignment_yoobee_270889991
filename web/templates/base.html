@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ project_name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('home') }}">{{ project_name }}</a>
+    <nav>
+      {% if current_user %}
+        <span class="muted" style="color:#fff;opacity:.85;">{{ current_user.role_label() }}: {{ current_user.username }}</span>
+        {% if current_user.role == 'ADMIN' %}<a href="{{ url_for('admin_dashboard') }}">Dashboard</a>{% endif %}
+        {% if current_user.role == 'OWNER_DRIVER' %}<a href="{{ url_for('owner_dashboard') }}">Dashboard</a>{% endif %}
+        {% if current_user.role == 'CUSTOMER' %}<a href="{{ url_for('customer_dashboard') }}">Dashboard</a>{% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register_choice') }}">Register</a>
+        <a href="{{ url_for('about') }}">About</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message | replace('\n', '<br>') | safe }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    {{ project_name }} - web interface (an ADDITION alongside the original CLI; both share the same database).<br>
+    Navigation, from anywhere: <a href="{{ url_for('home') }}">Home</a>{% if current_user %} | <a href="{{ url_for('logout') }}">Logout</a>{% endif %}
+  </footer>
+</body>
+</html>

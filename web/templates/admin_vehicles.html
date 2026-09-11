@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}All Vehicles{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>All Vehicles</h1>
+  <table>
+    <tr><th>ID</th><th>Vehicle</th><th>Reg. No.</th><th>Type</th><th>Seats</th><th>Daily Rate</th><th>Status</th><th>Update Status</th></tr>
+    {% for v in vehicles %}
+    <tr>
+      <td>{{ v.vehicle_id }}</td><td>{{ v.display_name() }}</td><td>{{ v.registration_no }}</td>
+      <td>{{ v.vehicle_type }}</td><td>{{ v.seats }}</td><td>{{ v.daily_rate | currency }}</td>
+      <td><span class="badge {{ v.status }}">{{ v.status }}</span></td>
+      <td>
+        <form class="inline" method="post" action="{{ url_for('admin_update_vehicle_status', vehicle_id=v.vehicle_id) }}">
+          <select name="status" style="width:auto;display:inline;padding:4px;">
+            {% for s in valid_statuses %}
+            <option value="{{ s }}" {% if s == v.status %}selected{% endif %}>{{ s }}</option>
+            {% endfor %}
+          </select>
+          <button class="btn small" type="submit">Update</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a class="btn secondary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}
